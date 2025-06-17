@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css" />
   <script>
     window.MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      tex: { inlineMath: [['\\(', '\\)']] },
       svg: { fontCache: 'global' }
     };
   </script>
@@ -28,17 +28,21 @@
   <main class="main">
     <section class="content-block">
       <h2>Kinematic Equation Solver</h2>
+
       <label for="formula-select">Select a formula:</label>
       <select id="formula-select">
         <option value="v">\( v = v_0 + at \)</option>
         <option value="x">\( \Delta x = v_0t + \frac{1}{2}at^2 \)</option>
         <option value="v2">\( v^2 = v_0^2 + 2a\Delta x \)</option>
       </select>
+
       <div id="kinematic-inputs" class="input-group"></div>
       <button id="solve-kinematic">Solve</button>
+
       <div id="kinematic-output" class="calc-output"></div>
     </section>
   </main>
+
   <script src="kinematic.js"></script>
 </body>
 </html>
