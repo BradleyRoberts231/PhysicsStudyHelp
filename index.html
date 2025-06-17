@@ -3,58 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Physics Formula Hub | Physics Tools & Formula Cheat Sheets</title>
-  <meta name="description" content="Your complete guide to physics formulas, calculators, and STEM resources. Includes kinematic equations, kinetic energy calculators, and more." />
-  <meta name="keywords" content="physics calculator, kinetic energy, kinematic equation solver, high school physics, physics formula, STEM tools" />
-  <meta name="author" content="Physics Formula Hub" />
+  <title>Physics Formula Hub</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
-  <nav class="sidebar">
-    <ul>
-      <li><a href="index.html">🏠 Home</a></li>
-      <li><a href="ke.html">⚡ Kinetic Energy</a></li>
-      <li><a href="kinematic.html">🧮 Kinematic Solver</a></li>
-      <li><a href="kinematic-examples.html">↳ Kinematic Examples</a></li>
-      <li><a href="#thermo">🔥 Thermodynamics</a></li>
-      <li><a href="#energy">🔋 Energy</a></li>
-      <li><a href="#units">📏 Unit Conversion</a></li>
-      <li><a href="#faq">❓ FAQ</a></li>
-    </ul>
-  </nav>
+  <div class="main-container">
+    <aside class="sidebar">
+      <h2>Physics Formula Hub</h2>
+      <p class="subtitle">Your guide to all things science and STEM</p>
+      <nav>
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="ke.html">Kinetic Energy Calculator</a></li>
+          <li><a href="kinematic.html">Kinematic Solver</a></li>
+          <li><a href="kinematic-examples.html">Kinematic Examples</a></li>
+          <li><a href="unit-conversions.html">Unit Conversions</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-  <main class="main">
-    <header class="banner" id="home">
-      <h1>Physics Formula Hub</h1>
-      <p class="tagline">Your guide to all things science and STEM</p>
-    </header>
-
-    <section class="content-block">
-      <h2>Welcome to Physics Formula Hub</h2>
-      <p>
-        Physics Formula Hub is a free and easy-to-use tool designed for students in introductory physics courses. Whether you're studying for high school exams or college-level physics, this site breaks down key concepts, guides you through problem-solving strategies, and shows each step of the math in detail — just like a professor would.
+    <main class="content">
+      <h1>Welcome to Physics Formula Hub</h1>
+      <p class="description">
+        This site is designed to help students in beginning physics courses. Whether you're calculating kinetic energy, solving kinematic equations, or converting units, we've got tools built by STEM experts to guide you through the math and physics step by step.
       </p>
-    </section>
-
-    <section id="thermo" class="content-block">
-      <h2>Thermodynamics</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="energy" class="content-block">
-      <h2>Energy Equations</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="units" class="content-block">
-      <h2>Unit Conversion Sheets</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="faq" class="content-block">
-      <h2>Frequently Asked Questions</h2>
-      <p>Coming soon...</p>
-    </section>
-  </main>
+    </main>
+  </div>
 </body>
 </html>
