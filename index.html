@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Physics Formula Hub</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to Physics Formula Hub</h1>
-  <p>Learn physics the easy way with calculators, examples, and guides.</p>
+  <header>
+    <h1>Physics Formula Hub</h1>
+    <p>Learn physics the easy way with calculators, examples, and guides.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Kinetic Energy Calculator</h2>
+      <label for="mass">Mass (kg):</label>
+      <input id="mass" type="number" placeholder="e.g. 5"><br><br>
+
+      <label for="velocity">Velocity (m/s):</label>
+      <input id="velocity" type="number" placeholder="e.g. 10"><br><br>
+
+      <button onclick="calculateKineticEnergy()">Calculate</button>
+      <p id="result"></p>
+    </section>
+
+    <section>
+      <h2>More Tools Coming Soon</h2>
+      <button onclick="comingSoon()">View Other Calculators</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Physics Formula Hub</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
