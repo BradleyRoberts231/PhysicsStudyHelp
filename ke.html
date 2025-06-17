@@ -8,9 +8,16 @@
   <meta name="keywords" content="kinetic energy, kinetic energy calculator, physics calculator, physics tool, science homework, energy equation" />
   <meta name="author" content="Physics Formula Hub" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .calc-output {
+      max-width: 500px;
+      margin-left: 0;
+      word-break: break-word;
+    }
+  </style>
   <script>
     window.MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      tex: { inlineMath: [['\\(', '\\)']] },
       svg: { fontCache: 'global' }
     };
   </script>
@@ -28,14 +35,19 @@
   <main class="main">
     <section class="content-block">
       <h2>Kinetic Energy Calculator</h2>
+
       <label for="mass">Mass \( m \) (kg):</label>
       <input type="number" id="mass" />
+
       <label for="velocity">Velocity \( v \) (m/s):</label>
       <input type="number" id="velocity" />
+
       <button id="calculate-ke">Calculate</button>
+
       <div id="ke-output" class="calc-output"></div>
     </section>
   </main>
+
   <script src="ke.js"></script>
 </body>
 </html>
