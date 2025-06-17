@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Physics Formula Hub</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Physics Formula Hub</h1>
-    <p>Learn physics the easy way with calculators, examples, and guides.</p>
-  </header>
 
-  <main>
-    <section>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <ul>
+      <li><a href="#home">🏠 Home</a></li>
+      <li><a href="#ke">⚡ Kinetic Energy Calculator</a></li>
+      <li><a href="#kinematics">🧮 Kinematic Equations</a></li>
+      <li><a href="#thermo">🔥 Thermodynamics</a></li>
+      <li><a href="#energy">🔋 Energy Equations</a></li>
+      <li><a href="#units">📏 Unit Conversion Sheets</a></li>
+      <li><a href="#faq">❓ FAQ</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- Header -->
+    <header class="banner" id="home">
+      <h1>Physics Formula Hub</h1>
+      <p>Your guide to all things science and STEM</p>
+    </header>
+
+    <section id="ke">
       <h2>Kinetic Energy Calculator</h2>
       <label for="mass">Mass (kg):</label>
-      <input id="mass" type="number" placeholder="e.g. 5"><br><br>
+      <input id="mass" type="number" placeholder="e.g. 5" /><br><br>
 
       <label for="velocity">Velocity (m/s):</label>
-      <input id="velocity" type="number" placeholder="e.g. 10"><br><br>
+      <input id="velocity" type="number" placeholder="e.g. 10" /><br><br>
 
       <button onclick="calculateKineticEnergy()">Calculate</button>
       <p id="result"></p>
     </section>
 
-    <section>
-      <h2>More Tools Coming Soon</h2>
-      <button onclick="comingSoon()">View Other Calculators</button>
+    <section id="kinematics">
+      <h2>Kinematic Equations</h2>
+      <p>Coming soon...</p>
     </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 Physics Formula Hub</p>
-  </footer>
+    <section id="thermo">
+      <h2>Thermodynamics Equations</h2>
+      <p>Coming soon...</p>
+    </section>
+
+    <section id="energy">
+      <h2>Energy Equations</h2>
+      <p>Coming soon...</p>
+    </section>
+
+    <section id="units">
+      <h2>Unit Conversion Sheets</h2>
+      <p>Coming soon...</p>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p>Coming soon...</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Physics Formula Hub</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
