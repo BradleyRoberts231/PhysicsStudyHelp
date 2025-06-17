@@ -1,91 +1,86 @@
-const formulaMap = {
-  v: ['v0', 'a', 't'],         // v = v0 + at
-  x: ['v0', 'a', 't'],         // Δx = v0t + ½at²
-  v2: ['v0', 'a', 'dx']        // v² = v0² + 2aΔx
-};
+// kinematic.js — Redesigned for modular layout, LaTeX output, and consistent formatting
 
-document.getElementById("formula-select").addEventListener("change", generateInputs);
-document.getElementById("solve-kinematic").addEventListener("click", solveFormula);
+document.addEventListener('DOMContentLoaded', () => {
+  const formulaSelect = document.getElementById('formula-select');
+  const inputContainer = document.getElementById('input-fields');
+  const resultContainer = document.getElementById('kinematic-result');
+  const solveButton = document.getElementById('solve-btn');
 
-function generateInputs() {
-  const selected = document.getElementById("formula-select").value;
-  const container = document.getElementById("kinematic-inputs");
-  container.innerHTML = '';
+  const formulas = {
+    'v = v₀ + at': ['v₀', 'a', 't'],
+    'x = x₀ + v₀t + ½at²': ['x₀', 'v₀', 'a', 't'],
+    'v² = v₀² + 2a(x − x₀)': ['v₀', 'a', 'x', 'x₀']
+  };
 
-  formulaMap[selected].forEach((variable) => {
-    const label = document.createElement("label");
-    const input = document.createElement("input");
-    label.textContent = variable;
-    label.setAttribute("for", variable);
-    input.id = variable;
-    input.type = "number";
-    input.placeholder = variable;
-    container.appendChild(label);
-    container.appendChild(input);
+  formulaSelect.addEventListener('change', () => {
+    const selected = formulaSelect.value;
+    renderInputs(formulas[selected]);
+    resultContainer.innerHTML = '';
   });
-}
 
-function solveFormula() {
-  const selected = document.getElementById("formula-select").value;
-  const output = document.getElementById("kinematic-output");
+  solveButton.addEventListener('click', () => {
+    const selected = formulaSelect.value;
+    const inputs = getInputs();
+    const result = solveFormula(selected, inputs);
+    renderResult(result);
+  });
 
-  let result = '';
-  let v0, a, t, dx, v;
-
-  try {
-    switch (selected) {
-      case 'v':
-        v0 = parseFloat(document.getElementById("v0").value);
-        a = parseFloat(document.getElementById("a").value);
-        t = parseFloat(document.getElementById("t").value);
-        if (isNaN(v0) || isNaN(a) || isNaN(t)) throw "Missing input.";
-
-        v = v0 + a * t;
-        result = `
-          \\[
-          \\text{Given: } v_0 = ${v0},\\ a = ${a},\\ t = ${t} \\\\
-          v = v_0 + at = ${v0} + (${a})(${t}) = ${v.toFixed(2)}\\ \\text{m/s}
-          \\]
-        `;
-        break;
-
-      case 'x':
-        v0 = parseFloat(document.getElementById("v0").value);
-        a = parseFloat(document.getElementById("a").value);
-        t = parseFloat(document.getElementById("t").value);
-        if (isNaN(v0) || isNaN(a) || isNaN(t)) throw "Missing input.";
-
-        dx = v0 * t + 0.5 * a * t * t;
-        result = `
-          \\[
-          \\text{Given: } v_0 = ${v0},\\ a = ${a},\\ t = ${t} \\\\
-          \\Delta x = v_0 t + \\frac{1}{2} a t^2 = ${v0} \\cdot ${t} + \\frac{1}{2} \\cdot ${a} \\cdot ${t}^2 = ${dx.toFixed(2)}\\ \\text{m}
-          \\]
-        `;
-        break;
-
-      case 'v2':
-        v0 = parseFloat(document.getElementById("v0").value);
-        a = parseFloat(document.getElementById("a").value);
-        dx = parseFloat(document.getElementById("dx").value);
-        if (isNaN(v0) || isNaN(a) || isNaN(dx)) throw "Missing input.";
-
-        const v2 = v0 * v0 + 2 * a * dx;
-        result = `
-          \\[
-          \\text{Given: } v_0 = ${v0},\\ a = ${a},\\ \\Delta x = ${dx} \\\\
-          v^2 = v_0^2 + 2a\\Delta x = (${v0})^2 + 2 \\cdot ${a} \\cdot ${dx} = ${v2.toFixed(2)}\\ \\text{(m/s)}^2
-          \\]
-        `;
-        break;
-    }
-
-    output.innerHTML = result;
-    MathJax.typesetPromise();
-  } catch (e) {
-    output.innerHTML = `<p>Please fill in all required values.</p>`;
+  function renderInputs(variables) {
+    inputContainer.innerHTML = '';
+    variables.forEach(v => {
+      const div = document.createElement('div');
+      div.className = 'input-group';
+      div.innerHTML = `
+        <label for="${v}">${v}</label>
+        <input type="number" id="${v}" placeholder="Enter ${v}" required />
+      `;
+      inputContainer.appendChild(div);
+    });
   }
-}
 
-// Initialize inputs on first load
-generateInputs();
+  function getInputs() {
+    const inputs = {};
+    document.querySelectorAll('#input-fields input').forEach(input => {
+      inputs[input.id] = parseFloat(input.value);
+    });
+    return inputs;
+  }
+
+  function solveFormula(formula, vars) {
+    let steps = [];
+    let result = null;
+    try {
+      switch (formula) {
+        case 'v = v₀ + at':
+          result = vars['v₀'] + vars['a'] * vars['t'];
+          steps.push(`v = ${vars['v₀']} + ${vars['a']} * ${vars['t']}`);
+          break;
+        case 'x = x₀ + v₀t + ½at²':
+          result = vars['x₀'] + vars['v₀'] * vars['t'] + 0.5 * vars['a'] * vars['t'] ** 2;
+          steps.push(`x = ${vars['x₀']} + ${vars['v₀']} * ${vars['t']} + 0.5 * ${vars['a']} * ${vars['t']}²`);
+          break;
+        case 'v² = v₀² + 2a(x − x₀)':
+          result = Math.sqrt(vars['v₀'] ** 2 + 2 * vars['a'] * (vars['x'] - vars['x₀']));
+          steps.push(`v² = ${vars['v₀']}² + 2 * ${vars['a']} * (${vars['x']} − ${vars['x₀']})`);
+          break;
+      }
+    } catch (e) {
+      return { error: 'Invalid input or missing value.' };
+    }
+    return { result, steps };
+  }
+
+  function renderResult(res) {
+    if (res.error) {
+      resultContainer.innerHTML = `<p class="error">${res.error}</p>`;
+    } else {
+      let output = `\\[${res.steps[0]}\\]`;
+      output += `<br>\\[\\text{Result: } ${res.result.toFixed(2)}\\]`;
+      resultContainer.innerHTML = output;
+      if (typeof MathJax !== 'undefined') MathJax.typesetPromise([resultContainer]);
+    }
+  }
+
+  // Initialize default inputs
+  renderInputs(formulas[formulaSelect.value]);
+});
