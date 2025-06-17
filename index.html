@@ -2,23 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Physics Formula Hub</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <nav class="sidebar" aria-label="Main navigation">
+  <nav class="sidebar">
     <ul>
-      <li><a href="#home">🏠 Home</a></li>
-      <li><a href="#ke">⚡ Kinetic Energy</a></li>
-      <li><a href="#kinematic-calc">🧮 Kinematic Solver</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="ke.html">⚡ Kinetic Energy</a></li>
+      <li><a href="kinematic.html">🧮 Kinematic Solver</a></li>
       <li><a href="#kinematics">📘 Kinematic Equations</a></li>
       <li><a href="#thermo">🔥 Thermodynamics</a></li>
       <li><a href="#energy">🔋 Energy</a></li>
@@ -33,34 +25,6 @@
       <p class="tagline">Your guide to all things science and STEM</p>
     </header>
 
-    <section id="ke" class="content-block">
-      <h2>Kinetic Energy Calculator</h2>
-      <div class="input-group">
-        <label for="mass">Mass \( m \) (kg):</label>
-        <input type="number" id="mass" />
-        <label for="velocity">Velocity \( v \) (m/s):</label>
-        <input type="number" id="velocity" />
-        <button id="calculate-ke">Calculate</button>
-      </div>
-      <div id="ke-output" class="calc-output"></div>
-    </section>
-
-    <section id="kinematic-calc" class="content-block">
-      <h2>Kinematic Equation Solver</h2>
-
-      <label for="formula-select">Select a formula:</label>
-      <select id="formula-select">
-        <option value="v">\( v = v_0 + at \)</option>
-        <option value="x">\( \Delta x = v_0t + \frac{1}{2}at^2 \)</option>
-        <option value="v2">\( v^2 = v_0^2 + 2a\Delta x \)</option>
-      </select>
-
-      <div id="kinematic-inputs" class="input-group"></div>
-
-      <button id="solve-kinematic">Solve</button>
-      <div id="kinematic-output" class="calc-output"></div>
-    </section>
-
     <section id="kinematics" class="content-block">
       <h2>Kinematic Equations</h2>
       <ul>
@@ -74,12 +38,6 @@
     <section id="energy" class="content-block"><h2>Energy Equations</h2><p>Coming soon...</p></section>
     <section id="units" class="content-block"><h2>Unit Conversion Sheets</h2><p>Coming soon...</p></section>
     <section id="faq" class="content-block"><h2>Frequently Asked Questions</h2><p>Coming soon...</p></section>
-
-    <footer>
-      <p>&copy; 2025 Physics Formula Hub. All rights reserved.</p>
-    </footer>
   </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
