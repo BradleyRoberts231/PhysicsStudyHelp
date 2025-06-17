@@ -6,7 +6,6 @@ body {
   color: #333;
 }
 
-/* Sidebar */
 .sidebar {
   width: 220px;
   background-color: #222;
@@ -35,7 +34,6 @@ body {
   text-decoration: underline;
 }
 
-/* Main Content */
 .main {
   margin-left: 240px;
   padding: 20px;
@@ -67,6 +65,8 @@ section {
 input {
   padding: 5px;
   width: 200px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 button {
@@ -83,6 +83,7 @@ button {
   border-radius: 6px;
   font-size: 1.1em;
   line-height: 1.8em;
+  margin-top: 20px;
 }
 
 footer {
