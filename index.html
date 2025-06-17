@@ -4,20 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Physics Formula Hub</title>
+  <meta name="description" content="Interactive tools, solvers, and worked examples for physics students. Built to guide you through core STEM concepts step by step.">
   <link rel="stylesheet" href="style.css" />
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="main-container">
     <aside class="sidebar">
       <h2>Physics Formula Hub</h2>
-      <p class="subtitle">Your guide to all things science and STEM</p>
+      <div class="subtitle">Your guide to all things science and STEM</div>
       <nav>
         <ul>
-          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="ke.html">Kinetic Energy Calculator</a></li>
           <li><a href="kinematic.html">Kinematic Solver</a></li>
           <li><a href="kinematic-examples.html">Kinematic Examples</a></li>
@@ -28,11 +27,26 @@
     </aside>
 
     <main class="content">
-      <h1>Welcome to Physics Formula Hub</h1>
-      <p class="description">
-        This site is designed to help students in beginning physics courses. Whether you're calculating kinetic energy, solving kinematic equations, or converting units, we've got tools built by STEM experts to guide you through the math and physics step by step.
-      </p>
+      <section>
+        <h1>Welcome to Physics Formula Hub</h1>
+        <p class="description">
+          Whether you're a physics student or STEM enthusiast, this site offers powerful tools to help you solve and understand fundamental concepts. From kinetic energy and kinematics to full unit converters and examples, our interactive modules walk you through the math with clarity.
+        </p>
+
+        <ul class="feature-list">
+          <li><strong>Kinetic Energy Calculator:</strong> Plug in mass and velocity to see the full step-by-step derivation.</li>
+          <li><strong>Kinematic Solver:</strong> Choose your equation and solve for any variable with fully shown math.</li>
+          <li><strong>Worked Examples:</strong> Learn how to solve physics problems like a professor would teach it.</li>
+          <li><strong>Unit Conversions:</strong> Quickly and accurately convert between units relevant to science.</li>
+        </ul>
+      </section>
+
+      <aside class="ad-column">
+        <p>Ad space reserved</p>
+      </aside>
     </main>
+
+    <script src="script.js"></script>
   </div>
 </body>
 </html>
