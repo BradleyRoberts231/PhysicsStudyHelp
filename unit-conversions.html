@@ -3,65 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unit Conversions | Physics Formula Hub</title>
+  <title>Kinematic Solver | Physics Formula Hub</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="unit-conversions.js" defer></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="main-container">
     <aside class="sidebar">
       <h2>Physics Formula Hub</h2>
-      <p class="subtitle">Your guide to all things science and STEM</p>
+      <div class="subtitle">Your guide to all things science and STEM</div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="ke.html">Kinetic Energy Calculator</a></li>
           <li><a href="kinematic.html">Kinematic Solver</a></li>
           <li><a href="kinematic-examples.html">Kinematic Examples</a></li>
-          <li><a class="active" href="unit-conversions.html">Unit Conversions</a></li>
+          <li><a href="unit-conversions.html">Unit Conversions</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
       </nav>
     </aside>
 
     <main class="content">
-      <h1>Unit Conversion Tools</h1>
-      <p class="description">Convert between common scientific and STEM-related units with precision and clarity. Select the desired units and enter a value to see results rendered professionally in LaTeX format.</p>
+      <div>
+        <h1>Kinematic Equation Solver</h1>
+        <p class="description">
+          Select a kinematic equation, enter known values, and calculate the missing variable. All steps are shown using LaTeX for clarity.
+        </p>
 
-      <section>
-        <h2>📏 Distance</h2>
-        <div id="distance-converter" class="converter-block"></div>
-      </section>
+        <div class="styled-form">
+          <label for="formula-select">Choose Equation:</label>
+          <select id="formula-select">
+            <option value="v = v₀ + at">v = v₀ + at</option>
+            <option value="x = x₀ + v₀t + ½at²">x = x₀ + v₀t + ½at²</option>
+            <option value="v² = v₀² + 2a(x − x₀)">v² = v₀² + 2a(x − x₀)</option>
+          </select>
 
-      <section>
-        <h2>⏱ Time</h2>
-        <div id="time-converter" class="converter-block"></div>
-      </section>
+          <div id="input-fields"></div>
 
-      <section>
-        <h2>🌡 Temperature</h2>
-        <div id="temperature-converter" class="converter-block"></div>
-      </section>
+          <button id="solve-btn" class="toggle-btn">Solve</button>
+        </div>
 
-      <section>
-        <h2>⚖ Mass</h2>
-        <div id="mass-converter" class="converter-block"></div>
-      </section>
+        <div id="kinematic-result" class="converter-output"></div>
+      </div>
 
-      <section>
-        <h2>🔥 Energy</h2>
-        <div id="energy-converter" class="converter-block"></div>
-      </section>
-
-      <section>
-        <h2>💪 Force</h2>
-        <div id="force-converter" class="converter-block"></div>
-      </section>
+      <aside class="ad-column">
+        <p>Ad space reserved</p>
+      </aside>
     </main>
-  </div>
+
+  <script src="script.js"></script>
+  <script src="kinematic.js"></script>
 </body>
 </html>
