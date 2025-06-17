@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Physics Formula Hub</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- MathJax for LaTeX rendering -->
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -17,12 +15,12 @@
 </head>
 <body>
 
-  <!-- Sidebar Navigation -->
   <nav class="sidebar" aria-label="Main navigation">
     <ul>
       <li><a href="#home">🏠 Home</a></li>
       <li><a href="#ke">⚡ Kinetic Energy</a></li>
-      <li><a href="#kinematics">🧮 Kinematics</a></li>
+      <li><a href="#kinematic-calc">🧮 Kinematic Solver</a></li>
+      <li><a href="#kinematics">📘 Kinematic Equations</a></li>
       <li><a href="#thermo">🔥 Thermodynamics</a></li>
       <li><a href="#energy">🔋 Energy</a></li>
       <li><a href="#units">📏 Unit Conversion</a></li>
@@ -30,7 +28,6 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
   <main class="main">
     <header class="banner" id="home">
       <h1>Physics Formula Hub</h1>
@@ -40,18 +37,43 @@
     <section id="ke" class="content-block">
       <h2>Kinetic Energy Calculator</h2>
       <label for="mass">Mass (kg):</label>
-      <input type="number" id="mass" placeholder="e.g. 5" />
+      <input type="number" id="mass" />
 
       <label for="velocity">Velocity (m/s):</label>
-      <input type="number" id="velocity" placeholder="e.g. 10" />
+      <input type="number" id="velocity" />
 
       <button id="calculate-ke">Calculate</button>
       <div id="ke-output" class="calc-output"></div>
     </section>
 
+    <section id="kinematic-calc" class="content-block">
+      <h2>Kinematic Equation Solver</h2>
+
+      <label for="formula-select">Choose formula:</label>
+      <select id="formula-select">
+        <option value="v">\( v = v_0 + at \)</option>
+        <option value="x">\( \Delta x = v_0t + \frac{1}{2}at^2 \)</option>
+        <option value="v2">\( v^2 = v_0^2 + 2a\Delta x \)</option>
+      </select>
+
+      <label for="v0">Initial Velocity \( v_0 \) (m/s):</label>
+      <input type="number" id="v0" />
+
+      <label for="a">Acceleration \( a \) (m/s²):</label>
+      <input type="number" id="a" />
+
+      <label for="t">Time \( t \) (s):</label>
+      <input type="number" id="t" />
+
+      <label for="dx">Displacement \( \Delta x \) (m):</label>
+      <input type="number" id="dx" />
+
+      <button id="solve-kinematic">Solve</button>
+      <div id="kinematic-output" class="calc-output"></div>
+    </section>
+
     <section id="kinematics" class="content-block">
       <h2>Kinematic Equations</h2>
-      <h3>Basic Equations</h3>
       <ul>
         <li>\( v = v_0 + at \)</li>
         <li>\( \Delta x = v_0t + \frac{1}{2}at^2 \)</li>
@@ -69,25 +91,10 @@
       <p>A train stops from 20 m/s in 100 m: \( v^2 = v_0^2 + 2a\Delta x \Rightarrow 0 = 400 + 2a(-100) \Rightarrow a = 2 \, \text{m/s}^2 \)</p>
     </section>
 
-    <section id="thermo" class="content-block">
-      <h2>Thermodynamics</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="energy" class="content-block">
-      <h2>Energy Equations</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="units" class="content-block">
-      <h2>Unit Conversion Sheets</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="faq" class="content-block">
-      <h2>Frequently Asked Questions</h2>
-      <p>Coming soon...</p>
-    </section>
+    <section id="thermo" class="content-block"><h2>Thermodynamics</h2><p>Coming soon...</p></section>
+    <section id="energy" class="content-block"><h2>Energy Equations</h2><p>Coming soon...</p></section>
+    <section id="units" class="content-block"><h2>Unit Conversion Sheets</h2><p>Coming soon...</p></section>
+    <section id="faq" class="content-block"><h2>Frequently Asked Questions</h2><p>Coming soon...</p></section>
 
     <footer>
       <p>&copy; 2025 Physics Formula Hub. All rights reserved.</p>
