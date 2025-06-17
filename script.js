@@ -5,7 +5,7 @@ function calculateKineticEnergy() {
 
   if (isNaN(m) || isNaN(v)) {
     outputDiv.innerHTML = `<p style="color: red;">Please enter valid numbers for mass and velocity.</p>`;
-    MathJax.typeset();
+    if (window.MathJax) MathJax.typeset();
     return;
   }
 
@@ -20,5 +20,9 @@ function calculateKineticEnergy() {
     \\]
   `;
 
-  MathJax.typeset(); // Rerender MathJax
+  if (window.MathJax) {
+    MathJax.typesetPromise()
+      .then(() => console.log("MathJax rendered"))
+      .catch((err) => console.error("MathJax error:", err));
+  }
 }
