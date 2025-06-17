@@ -1,28 +1,32 @@
-function calculateKineticEnergy() {
-  const m = parseFloat(document.getElementById("mass").value);
-  const v = parseFloat(document.getElementById("velocity").value);
-  const outputDiv = document.getElementById("ke-output");
+document.addEventListener("DOMContentLoaded", () => {
+  const calcButton = document.getElementById("calculate-btn");
 
-  if (isNaN(m) || isNaN(v)) {
-    outputDiv.innerHTML = `<p style="color: red;">Please enter valid numbers for mass and velocity.</p>`;
-    if (window.MathJax) MathJax.typeset();
-    return;
-  }
+  calcButton.addEventListener("click", () => {
+    const m = parseFloat(document.getElementById("mass").value);
+    const v = parseFloat(document.getElementById("velocity").value);
+    const outputDiv = document.getElementById("ke-output");
 
-  const ke = 0.5 * m * v * v;
+    if (isNaN(m) || isNaN(v)) {
+      outputDiv.innerHTML = `<p style="color: red;">Please enter valid numbers for mass and velocity.</p>`;
+      if (window.MathJax) MathJax.typeset();
+      return;
+    }
 
-  outputDiv.innerHTML = `
-    \\[
-    \\textbf{\\text{Formula:}} \\quad KE = \\frac{1}{2}mv^2 \\\\
-    \\textbf{\\text{Substitute:}} \\quad KE = \\frac{1}{2}(${m})(${v})^2 \\\\
-    \\textbf{\\text{Step:}} \\quad KE = 0.5 \\times ${m} \\times ${v * v} \\\\
-    \\textbf{\\text{Result:}} \\quad KE = \\boxed{${ke.toFixed(2)}\\ \\text{J}}
-    \\]
-  `;
+    const ke = 0.5 * m * v * v;
 
-  if (window.MathJax) {
-    MathJax.typesetPromise()
-      .then(() => console.log("MathJax rendered"))
-      .catch((err) => console.error("MathJax error:", err));
-  }
-}
+    outputDiv.innerHTML = `
+      \\[
+      \\textbf{\\text{Formula:}} \\quad KE = \\frac{1}{2}mv^2 \\\\
+      \\textbf{\\text{Substitute:}} \\quad KE = \\frac{1}{2}(${m})(${v})^2 \\\\
+      \\textbf{\\text{Step:}} \\quad KE = 0.5 \\times ${m} \\times ${v * v} \\\\
+      \\textbf{\\text{Result:}} \\quad KE = \\boxed{${ke.toFixed(2)}\\ \\text{J}}
+      \\]
+    `;
+
+    if (window.MathJax) {
+      MathJax.typesetPromise()
+        .then(() => console.log("MathJax rendered"))
+        .catch((err) => console.error("MathJax error:", err));
+    }
+  });
+});
