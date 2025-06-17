@@ -92,13 +92,6 @@ button:hover {
   border-radius: 5px;
 }
 
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 50px;
-}
-
 .input-group label {
   margin-top: 10px;
   font-weight: 500;
