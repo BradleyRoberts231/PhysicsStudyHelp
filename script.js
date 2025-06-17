@@ -1,84 +1,124 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // KE Calculator
-  const massInput = document.getElementById("mass");
-  const velocityInput = document.getElementById("velocity");
-  const keOutput = document.getElementById("ke-output");
-  const keBtn = document.getElementById("calculate-ke");
+  const renderLatex = () => MathJax.typesetPromise().catch(console.error);
 
+  // === KINETIC ENERGY CALCULATOR ===
+  const keBtn = document.getElementById("calculate-ke");
   keBtn.addEventListener("click", () => {
-    const m = parseFloat(massInput.value);
-    const v = parseFloat(velocityInput.value);
+    const m = parseFloat(document.getElementById("mass").value);
+    const v = parseFloat(document.getElementById("velocity").value);
+    const output = document.getElementById("ke-output");
+
     if (isNaN(m) || isNaN(v)) {
-      keOutput.innerHTML = `<p style="color:red;">Please enter valid numbers.</p>`;
-      MathJax.typesetPromise();
+      output.innerHTML = `<p style="color:red;">Please enter valid numbers.</p>`;
+      renderLatex();
       return;
     }
+
     const ke = 0.5 * m * v * v;
-    keOutput.innerHTML = `
+    output.innerHTML = `
       <div>\\[ KE = \\frac{1}{2}mv^2 \\]</div>
       <div>\\[ KE = \\frac{1}{2}(${m})(${v})^2 \\]</div>
       <div>\\[ KE = 0.5 \\times ${m} \\times ${v * v} \\]</div>
-      <div>\\[ KE = \\boxed{${ke.toFixed(2)} \\text{ J}} \\]</div>
+      <div>\\[ \\boxed{KE = ${ke.toFixed(2)}\\ \\text{J}} \\]</div>
     `;
-    MathJax.typesetPromise();
+    renderLatex();
   });
 
-  // Kinematic Equation Solver
+  // === KINEMATIC SOLVER ===
+  const formulaSelect = document.getElementById("formula-select");
+  const inputArea = document.getElementById("kinematic-inputs");
   const solveBtn = document.getElementById("solve-kinematic");
-  const kinOutput = document.getElementById("kinematic-output");
+  const output = document.getElementById("kinematic-output");
+
+  const variableFields = {
+    v0: { label: "Initial velocity \( v_0 \) (m/s)", id: "v0" },
+    a:  { label: "Acceleration \( a \) (m/s²)", id: "a" },
+    t:  { label: "Time \( t \) (s)", id: "t" },
+    dx: { label: "Displacement \( \\Delta x \) (m)", id: "dx" },
+  };
+
+  const formulaInputs = {
+    v:  ["v0", "a", "t"],
+    x:  ["v0", "a", "t"],
+    v2: ["v0", "a", "dx"],
+  };
+
+  function renderInputs(formulaKey) {
+    inputArea.innerHTML = "";
+    formulaInputs[formulaKey].forEach(varKey => {
+      const field = variableFields[varKey];
+      const label = document.createElement("label");
+      label.setAttribute("for", field.id);
+      label.innerHTML = field.label;
+
+      const input = document.createElement("input");
+      input.type = "number";
+      input.id = field.id;
+
+      inputArea.appendChild(label);
+      inputArea.appendChild(input);
+    });
+    renderLatex();
+  }
+
+  formulaSelect.addEventListener("change", () => {
+    renderInputs(formulaSelect.value);
+  });
 
   solveBtn.addEventListener("click", () => {
-    const formula = document.getElementById("formula-select").value;
-    const v0 = parseFloat(document.getElementById("v0").value);
-    const a = parseFloat(document.getElementById("a").value);
-    const t = parseFloat(document.getElementById("t").value);
-    const dx = parseFloat(document.getElementById("dx").value);
+    const formula = formulaSelect.value;
+    const vars = {};
+    formulaInputs[formula].forEach(id => {
+      vars[id] = parseFloat(document.getElementById(id).value);
+    });
 
-    kinOutput.innerHTML = "";
+    if (Object.values(vars).some(val => isNaN(val))) {
+      output.innerHTML = `<p style="color:red;">Please fill in all required values.</p>`;
+      renderLatex();
+      return;
+    }
+
+    let result = "";
 
     try {
-      let latex = "";
-
       if (formula === "v") {
-        if (isNaN(v0) || isNaN(a) || isNaN(t)) throw "Missing input.";
-        const v = v0 + a * t;
-        latex = `
+        const v = vars.v0 + vars.a * vars.t;
+        result = `
           \\[
             v = v_0 + at \\\\
-            v = ${v0} + ${a} \\times ${t} \\\\
-            v = ${v.toFixed(2)} \\\\
+            v = ${vars.v0} + ${vars.a} \\times ${vars.t} \\\\
             \\boxed{v = ${v.toFixed(2)}\\ \\text{m/s}}
           \\]
         `;
       } else if (formula === "x") {
-        if (isNaN(v0) || isNaN(a) || isNaN(t)) throw "Missing input.";
-        const x = v0 * t + 0.5 * a * t * t;
-        latex = `
+        const x = vars.v0 * vars.t + 0.5 * vars.a * vars.t ** 2;
+        result = `
           \\[
             \\Delta x = v_0t + \\frac{1}{2}at^2 \\\\
-            = ${v0} \\times ${t} + \\frac{1}{2} \\times ${a} \\times ${t}^2 \\\\
-            = ${x.toFixed(2)} \\\\
+            = ${vars.v0} \\times ${vars.t} + \\frac{1}{2} \\times ${vars.a} \\times ${vars.t}^2 \\\\
             \\boxed{\\Delta x = ${x.toFixed(2)}\\ \\text{m}}
           \\]
         `;
       } else if (formula === "v2") {
-        if (isNaN(v0) || isNaN(a) || isNaN(dx)) throw "Missing input.";
-        const vSquared = v0 * v0 + 2 * a * dx;
-        const v = Math.sqrt(vSquared);
-        latex = `
+        const v2 = vars.v0 ** 2 + 2 * vars.a * vars.dx;
+        if (v2 < 0) throw "Negative result under square root.";
+        const v = Math.sqrt(v2);
+        result = `
           \\[
             v^2 = v_0^2 + 2a\\Delta x \\\\
-            = ${v0}^2 + 2 \\times ${a} \\times ${dx} \\\\
-            = ${vSquared.toFixed(2)} \\\\
+            = ${vars.v0}^2 + 2 \\times ${vars.a} \\times ${vars.dx} \\\\
+            = ${v2.toFixed(2)} \\\\
             \\boxed{v = ${v.toFixed(2)}\\ \\text{m/s}}
           \\]
         `;
       }
-
-      kinOutput.innerHTML = latex;
-      MathJax.typesetPromise();
     } catch (err) {
-      kinOutput.innerHTML = `<p style="color:red;">Error: ${err}</p>`;
+      result = `<p style="color:red;">Error: ${err}</p>`;
     }
+
+    output.innerHTML = result;
+    renderLatex();
   });
+
+  renderInputs(formulaSelect.value); // Initial render
 });
