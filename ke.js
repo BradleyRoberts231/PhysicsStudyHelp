@@ -9,16 +9,18 @@ document.getElementById("calculate-ke").addEventListener("click", () => {
   }
 
   const ke = 0.5 * m * v * v;
+  const step1 = `\\( KE = \\frac{1}{2}mv^2 \\)`;
+  const step2 = `\\( KE = \\frac{1}{2} \\times ${m} \\times (${v})^2 \\)`;
+  const step3 = `\\( KE = ${0.5 * m} \\times ${v * v} \\)`;
+  const final = `\\( KE = ${ke.toFixed(2)}\\ \\text{J} \\)`;
 
   output.innerHTML = `
-    \\[
-    \\text{Given:} \\\\
-    m = ${m}\\ \\text{kg}, \\quad v = ${v}\\ \\text{m/s} \\\\
-    \\text{Kinetic Energy formula:}\\quad KE = \\frac{1}{2}mv^2 \\\\
-    \\text{Step 1:}\\quad KE = \\frac{1}{2} \\times ${m} \\times (${v})^2 \\\\
-    \\text{Step 2:}\\quad KE = ${0.5 * m} \\times ${v * v} \\\\
-    \\text{Result:}\\quad KE = ${ke.toFixed(2)}\\ \\text{Joules}
-    \\]
+    <p>\\( \\text{Given: } m = ${m}\\ \\text{kg},\\ v = ${v}\\ \\text{m/s} \\)</p>
+    <p>${step1}</p>
+    <p>${step2}</p>
+    <p>${step3}</p>
+    <p><strong>${final}</strong></p>
   `;
+
   MathJax.typesetPromise();
 });
