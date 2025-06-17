@@ -1,4 +1,4 @@
-// unit-conversions.js — Redesigned with clean structure, modular layout, and LaTeX output
+// unit-conversions.js — Cleaned and LaTeX-corrected
 
 document.addEventListener('DOMContentLoaded', () => {
   setupConverter('distance-converter', 'Distance', [
@@ -86,7 +86,7 @@ function setupConverter(containerId, label, units) {
     const unitLabel = toSelect.options[toSelect.selectedIndex].text;
     const result = val * (1 / from) * to;
 
-    output.innerHTML = `\\[${result.toPrecision(6)}\\ \text{${unitLabel}}\\]`;
+    output.innerHTML = `\\[${result.toPrecision(6)}\\ \\text{${unitLabel}}\\]`;
     if (typeof MathJax !== 'undefined') MathJax.typesetPromise([output]);
   };
 
@@ -163,7 +163,7 @@ function setupTemperatureConverter(containerId, label) {
       else if (to === 'Kelvin') result = tempC + 273.15;
     }
 
-    output.innerHTML = `\\[${result.toFixed(2)}\\ \text{${to}}\\]`;
+    output.innerHTML = `\\[${result.toFixed(2)}\\ \\text{${to}}\\]`;
     if (typeof MathJax !== 'undefined') MathJax.typesetPromise([output]);
   };
 
