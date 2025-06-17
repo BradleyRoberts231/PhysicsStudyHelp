@@ -65,7 +65,7 @@ body {
 
 .content > div {
   flex: 1;
-  max-width: 520px;
+  max-width: 720px;
 }
 
 .ad-column {
@@ -77,60 +77,65 @@ body {
   min-height: 100vh;
 }
 
-/* Headings */
+/* Headings and Text */
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   border-bottom: 2px solid #ddd;
   padding-bottom: 0.25rem;
 }
 
+h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .description {
   font-size: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  color: #444;
 }
 
-/* Converter Layout */
-.converter-block {
-  margin-bottom: 2rem;
+/* Lists */
+.feature-list {
+  padding-left: 1.25rem;
+  line-height: 1.75;
 }
 
-.converter-fieldset {
+/* Form Elements */
+.styled-form {
   background-color: white;
   padding: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.input-group {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
-.converter-fieldset.compact {
-  max-width: 480px;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+.input-group label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
 }
 
-/* Inputs and Buttons */
-.converter-input,
+.input-group input,
 select {
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  flex: 1 1 150px;
 }
 
 .toggle-btn {
@@ -141,16 +146,48 @@ select {
   border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
-  flex-shrink: 0;
+  margin-top: 0.5rem;
 }
 
 .toggle-btn:hover {
   background-color: #003f7f;
 }
 
+/* Output */
 .converter-output {
   width: 100%;
   margin-top: 0.75rem;
   font-size: 1.1rem;
   color: #0055aa;
+  line-height: 1.5;
+}
+
+.error {
+  color: red;
+  font-weight: 600;
+}
+
+/* Kinematic Examples */
+.example-block {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.example-img {
+  max-width: 100%;
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.solution {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid #0055aa;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hidden {
+  display: none;
 }
