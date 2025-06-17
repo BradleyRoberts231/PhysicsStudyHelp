@@ -91,6 +91,16 @@ ul {
   padding-left: 20px;
 }
 
+/* Calculator Output Box */
+.calc-output {
+  background-color: #eef;
+  padding: 15px;
+  border-left: 4px solid #007ACC;
+  border-radius: 6px;
+  font-size: 1.1em;
+  line-height: 1.8em;
+}
+
 footer {
   margin-top: 40px;
   font-size: 0.9em;
