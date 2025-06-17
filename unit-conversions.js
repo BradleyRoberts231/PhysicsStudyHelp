@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupConverter('time-converter', [
     { name: 'Seconds', factor: 1 },
-    { name: 'Minutes', factor: 1/60 },
-    { name: 'Hours', factor: 1/3600 },
-    { name: 'Days', factor: 1/86400 }
+    { name: 'Minutes', factor: 1 / 60 },
+    { name: 'Hours', factor: 1 / 3600 },
+    { name: 'Days', factor: 1 / 86400 }
   ]);
 
   setupConverter('mass-converter', [
@@ -42,7 +42,7 @@ function setupConverter(containerId, units) {
   const container = document.getElementById(containerId);
 
   const fieldset = document.createElement('fieldset');
-  fieldset.className = 'converter-fieldset';
+  fieldset.className = 'converter-fieldset compact';
 
   const input = document.createElement('input');
   input.type = 'number';
@@ -76,8 +76,9 @@ function setupConverter(containerId, units) {
     }
     const from = parseFloat(fromSelect.value);
     const to = parseFloat(toSelect.value);
+    const unitLabel = toSelect.options[toSelect.selectedIndex].text;
     const result = val * (1 / from) * to;
-    output.innerHTML = `\[\text{Result: } ${result.toPrecision(6)}\]`;
+    output.innerHTML = `\\[${result.toPrecision(6)}\\ \text{${unitLabel}}\\]`;
     if (typeof MathJax !== 'undefined') MathJax.typesetPromise([output]);
   };
 
@@ -94,7 +95,7 @@ function setupTemperatureConverter(containerId) {
   const container = document.getElementById(containerId);
 
   const fieldset = document.createElement('fieldset');
-  fieldset.className = 'converter-fieldset';
+  fieldset.className = 'converter-fieldset compact';
 
   const input = document.createElement('input');
   input.type = 'number';
@@ -132,7 +133,6 @@ function setupTemperatureConverter(containerId) {
     }
 
     let result;
-
     if (from === to) {
       result = value;
     } else {
@@ -146,7 +146,7 @@ function setupTemperatureConverter(containerId) {
       else if (to === 'Kelvin') result = tempC + 273.15;
     }
 
-    output.innerHTML = `\[\text{Result: } ${result.toFixed(2)}\ \text{${to}}\]`;
+    output.innerHTML = `\\[${result.toFixed(2)}\\ \text{${to}}\\]`;
     if (typeof MathJax !== 'undefined') MathJax.typesetPromise([output]);
   };
 
