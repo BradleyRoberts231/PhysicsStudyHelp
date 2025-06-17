@@ -1,3 +1,4 @@
+/* ====== Reset and Global ====== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +12,7 @@ body {
   color: #333;
 }
 
+/* ====== Sidebar ====== */
 .sidebar {
   width: 240px;
   background-color: #1f1f1f;
@@ -39,6 +41,7 @@ body {
   color: #4dd0e1;
 }
 
+/* ====== Main Layout ====== */
 .main {
   margin-left: 260px;
   padding: 30px;
@@ -46,6 +49,7 @@ body {
   flex-grow: 1;
 }
 
+/* ====== Banner ====== */
 .banner {
   background: linear-gradient(to right, #1976d2, #42a5f5);
   color: white;
@@ -54,6 +58,17 @@ body {
   margin-bottom: 30px;
 }
 
+.banner h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* ====== Content Block ====== */
 .content-block {
   background: white;
   padding: 25px;
@@ -62,7 +77,10 @@ body {
   margin-bottom: 30px;
 }
 
-input, select, button {
+/* ====== Form Elements ====== */
+input,
+select,
+button {
   display: block;
   margin: 10px 0;
   padding: 10px;
@@ -84,15 +102,19 @@ button:hover {
   background-color: #1565c0;
 }
 
+.input-group label {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* ====== Output Area ====== */
 .calc-output {
   background-color: #e3f2fd;
   padding: 15px;
   border-left: 4px solid #1976d2;
   margin-top: 20px;
   border-radius: 5px;
-}
-
-.input-group label {
-  margin-top: 10px;
-  font-weight: 500;
+  max-width: 500px;
+  margin-left: 0;
+  word-break: break-word;
 }
