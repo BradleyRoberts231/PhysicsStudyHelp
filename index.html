@@ -5,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Physics Formula Hub</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
-  <!-- Optional: MathJax for prettier equations -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
 </head>
 <body>
 
@@ -30,6 +24,7 @@
   <!-- Main Content -->
   <div class="main">
 
+    <!-- Header -->
     <header class="banner" id="home">
       <h1>Physics Formula Hub</h1>
       <p>Your guide to all things science and STEM</p>
@@ -49,44 +44,7 @@
 
     <section id="kinematics">
       <h2>Kinematic Equations</h2>
-
-      <h3>Basic Equations</h3>
-      <ul>
-        <li><strong>\( v = v_0 + at \)</strong></li>
-        <li><strong>\( \Delta x = v_0t + \frac{1}{2}at^2 \)</strong></li>
-        <li><strong>\( v^2 = v_0^2 + 2a\Delta x \)</strong></li>
-      </ul>
-
-      <h3>Derivations</h3>
-
-      <h4>1. \( v = v_0 + at \)</h4>
-      <p>From the definition of acceleration:</p>
-      <p>\( a = \frac{v - v_0}{t} \Rightarrow v = v_0 + at \)</p>
-
-      <h4>2. \( \Delta x = v_0t + \frac{1}{2}at^2 \)</h4>
-      <p>Average velocity: \( v_{\text{avg}} = \frac{v_0 + v}{2} \)</p>
-      <p>Then: \( \Delta x = v_{\text{avg}} \cdot t = \frac{v_0 + v}{2} \cdot t \)</p>
-      <p>Substitute \( v = v_0 + at \) →</p>
-      <p>\( \Delta x = \frac{v_0 + (v_0 + at)}{2} \cdot t = \left(v_0 + \frac{1}{2}at\right)t \)</p>
-      <p>Result: \( \Delta x = v_0t + \frac{1}{2}at^2 \)</p>
-
-      <h4>3. \( v^2 = v_0^2 + 2a\Delta x \)</h4>
-      <p>Combine \( v = v_0 + at \) with \( \Delta x = v_0t + \frac{1}{2}at^2 \), eliminate \( t \), and solve:</p>
-      <p>\( v^2 = v_0^2 + 2a\Delta x \)</p>
-
-      <h3>Example Problems</h3>
-
-      <h4>Example 1</h4>
-      <p><em>A car starts from rest and accelerates at 3 m/s² for 5 seconds. How fast is it going?</em></p>
-      <p>\( v = 0 + (3)(5) = 15 \, \text{m/s} \)</p>
-
-      <h4>Example 2</h4>
-      <p><em>A rock is dropped off a cliff. How far does it fall in 4 seconds?</em></p>
-      <p>\( \Delta x = 0 + \frac{1}{2}(9.8)(4^2) = 78.4 \, \text{m} \)</p>
-
-      <h4>Example 3</h4>
-      <p><em>A train moving at 20 m/s brakes to a stop in 100 meters. What is its acceleration?</em></p>
-      <p>\( 0 = 400 + 2a(-100) \Rightarrow a = 2 \, \text{m/s}^2 \)</p>
+      <p>Coming soon...</p>
     </section>
 
     <section id="thermo">
@@ -113,5 +71,7 @@
       <p>&copy; 2025 Physics Formula Hub</p>
     </footer>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
