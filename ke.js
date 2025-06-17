@@ -1,26 +1,30 @@
-document.getElementById("calculate-ke").addEventListener("click", () => {
-  const m = parseFloat(document.getElementById("mass").value);
-  const v = parseFloat(document.getElementById("velocity").value);
-  const output = document.getElementById("ke-output");
+// ke.js — Modular calculator for kinetic energy with LaTeX output and professional layout
 
-  if (isNaN(m) || isNaN(v)) {
-    output.innerHTML = "Please enter valid numbers for both mass and velocity.";
-    return;
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('ke-form');
+  const output = document.getElementById('ke-output');
 
-  const ke = 0.5 * m * v * v;
-  const step1 = `\\( KE = \\frac{1}{2}mv^2 \\)`;
-  const step2 = `\\( KE = \\frac{1}{2} \\times ${m} \\times (${v})^2 \\)`;
-  const step3 = `\\( KE = ${0.5 * m} \\times ${v * v} \\)`;
-  const final = `\\( KE = ${ke.toFixed(2)}\\ \\text{J} \\)`;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
 
-  output.innerHTML = `
-    <p>\\( \\text{Given: } m = ${m}\\ \\text{kg},\\ v = ${v}\\ \\text{m/s} \\)</p>
-    <p>${step1}</p>
-    <p>${step2}</p>
-    <p>${step3}</p>
-    <p><strong>${final}</strong></p>
-  `;
+    const mass = parseFloat(document.getElementById('mass').value);
+    const velocity = parseFloat(document.getElementById('velocity').value);
 
-  MathJax.typesetPromise();
+    if (isNaN(mass) || isNaN(velocity)) {
+      output.innerHTML = '<p class="error">Please enter valid values for both mass and velocity.</p>';
+      return;
+    }
+
+    const ke = 0.5 * mass * velocity ** 2;
+
+    const steps = [
+      `KE = \frac{1}{2}mv^2`,
+      `KE = \frac{1}{2}(${mass})(${velocity})^2`,
+      `KE = \frac{1}{2}(${mass})(${(velocity ** 2).toFixed(2)})`,
+      `KE = ${(ke).toFixed(2)}\ \text{J}`
+    ];
+
+    output.innerHTML = steps.map(step => `\\[${step}\\]`).join('<br>');
+    if (typeof MathJax !== 'undefined') MathJax.typesetPromise([output]);
+  });
 });
