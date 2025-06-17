@@ -1,9 +1,7 @@
 // script.js
 
-// Confirm the JS file is connected
 console.log("script.js loaded");
 
-// Example: Calculate Kinetic Energy (KE = 0.5 * m * v^2)
 function calculateKineticEnergy() {
   const massInput = document.getElementById("mass");
   const velocityInput = document.getElementById("velocity");
@@ -21,7 +19,6 @@ function calculateKineticEnergy() {
   resultOutput.textContent = `Kinetic Energy: ${ke.toFixed(2)} J`;
 }
 
-// Placeholder for future tools
 function comingSoon() {
   alert("This tool is coming soon!");
 }
