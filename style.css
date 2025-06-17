@@ -100,6 +100,31 @@ strong {
   color: #14213d;
 }
 
+.toggle-btn {
+  background-color: #fca311;
+  color: #14213d;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: #e59200;
+}
+
+.toggle-content {
+  display: none;
+  margin-top: 10px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-left: 4px solid #fca311;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 768px) {
   .main {
     margin-left: 0;
