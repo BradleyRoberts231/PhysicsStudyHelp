@@ -1,24 +1,13 @@
-// script.js
-
-console.log("script.js loaded");
-
 function calculateKineticEnergy() {
-  const massInput = document.getElementById("mass");
-  const velocityInput = document.getElementById("velocity");
-  const resultOutput = document.getElementById("result");
-
-  const m = parseFloat(massInput.value);
-  const v = parseFloat(velocityInput.value);
+  const m = parseFloat(document.getElementById("mass").value);
+  const v = parseFloat(document.getElementById("velocity").value);
+  const output = document.getElementById("result");
 
   if (isNaN(m) || isNaN(v)) {
-    resultOutput.textContent = "Please enter valid numbers for mass and velocity.";
+    output.textContent = "Please enter valid numbers.";
     return;
   }
 
   const ke = 0.5 * m * v * v;
-  resultOutput.textContent = `Kinetic Energy: ${ke.toFixed(2)} J`;
-}
-
-function comingSoon() {
-  alert("This tool is coming soon!");
+  output.textContent = `Kinetic Energy: ${ke.toFixed(2)} J`;
 }
