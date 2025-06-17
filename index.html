@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Physics Formula Hub</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
 
   <!-- MathJax for LaTeX rendering -->
   <script>
@@ -22,11 +21,6 @@
     <ul>
       <li><a href="#home">🏠 Home</a></li>
       <li><a href="#ke">⚡ Kinetic Energy Calculator</a></li>
-      <li><a href="#kinematics">🧮 Kinematic Equations</a></li>
-      <li><a href="#thermo">🔥 Thermodynamics</a></li>
-      <li><a href="#energy">🔋 Energy Equations</a></li>
-      <li><a href="#units">📏 Unit Conversion Sheets</a></li>
-      <li><a href="#faq">❓ FAQ</a></li>
     </ul>
   </nav>
 
@@ -46,65 +40,17 @@
       <label for="velocity">Velocity (m/s):</label>
       <input id="velocity" type="number" placeholder="e.g. 10" /><br><br>
 
-      <button onclick="calculateKineticEnergy()">Calculate</button>
+      <button id="calculate-btn">Calculate</button>
 
       <div id="ke-output" class="calc-output" style="margin-top: 20px;"></div>
-    </section>
-
-    <section id="kinematics">
-      <h2>Kinematic Equations</h2>
-
-      <h3>Basic Equations</h3>
-      <ul>
-        <li><strong>\( v = v_0 + at \)</strong></li>
-        <li><strong>\( \Delta x = v_0t + \frac{1}{2}at^2 \)</strong></li>
-        <li><strong>\( v^2 = v_0^2 + 2a\Delta x \)</strong></li>
-      </ul>
-
-      <h3>Derivations</h3>
-
-      <h4>1. \( v = v_0 + at \)</h4>
-      <p>\( a = \frac{v - v_0}{t} \Rightarrow v = v_0 + at \)</p>
-
-      <h4>2. \( \Delta x = v_0t + \frac{1}{2}at^2 \)</h4>
-      <p>\( v_{\text{avg}} = \frac{v_0 + v}{2} \Rightarrow \Delta x = v_{\text{avg}} \cdot t \)</p>
-      <p>Substitute \( v = v_0 + at \):</p>
-      <p>\( \Delta x = \left(v_0 + \frac{1}{2}at\right)t = v_0t + \frac{1}{2}at^2 \)</p>
-
-      <h4>3. \( v^2 = v_0^2 + 2a\Delta x \)</h4>
-      <p>From previous equations, eliminate \( t \):</p>
-      <p>\( v^2 = v_0^2 + 2a\Delta x \)</p>
-
-      <h3>Example Problems</h3>
-      <p>\( v = 0 + (3)(5) = 15 \, \text{m/s} \)</p>
-      <p>\( \Delta x = \frac{1}{2}(9.8)(4^2) = 78.4 \, \text{m} \)</p>
-      <p>\( 0 = 400 + 2a(-100) \Rightarrow a = 2 \, \text{m/s}^2 \)</p>
-    </section>
-
-    <section id="thermo">
-      <h2>Thermodynamics Equations</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="energy">
-      <h2>Energy Equations</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="units">
-      <h2>Unit Conversion Sheets</h2>
-      <p>Coming soon...</p>
-    </section>
-
-    <section id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <p>Coming soon...</p>
     </section>
 
     <footer>
       <p>&copy; 2025 Physics Formula Hub</p>
     </footer>
   </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>
-
