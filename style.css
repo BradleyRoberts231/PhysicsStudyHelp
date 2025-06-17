@@ -1,120 +1,117 @@
-/* ====== Reset and Global ====== */
-* {
-  box-sizing: border-box;
+/* Enhanced style.css for Physics Formula Hub with professional visual design */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fb;
+  color: #212529;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  background: #f5f7fb;
-  color: #333;
-}
-
-/* ====== Sidebar ====== */
 .sidebar {
-  width: 240px;
-  background-color: #1f1f1f;
-  color: white;
-  padding: 20px;
+  background: #14213d;
+  color: #fff;
+  width: 220px;
   position: fixed;
-  height: 100vh;
-  overflow-y: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.sidebar li {
-  margin: 16px 0;
+.sidebar ul li {
+  margin: 10px 0;
 }
 
-.sidebar a {
+.sidebar ul li a {
   color: white;
   text-decoration: none;
+  padding: 12px 20px;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #fca311;
+  color: #14213d;
+}
+
+.main {
+  margin-left: 240px;
+  padding: 40px;
+}
+
+.content-block {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s;
+}
+
+.content-block:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+  border-left: 6px solid #fca311;
+  padding-left: 15px;
+}
+
+h2 {
+  margin-top: 50px;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #fca311;
+  padding-bottom: 6px;
+}
+
+p, li {
+  font-size: 1.1em;
+  line-height: 1.75em;
+  margin-bottom: 14px;
+  color: #333;
+}
+
+ol {
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+ol li::marker {
+  color: #fca311;
   font-weight: bold;
 }
 
-.sidebar a:hover {
-  color: #4dd0e1;
-}
-
-/* ====== Main Layout ====== */
-.main {
-  margin-left: 260px;
-  padding: 30px;
-  max-width: 900px;
-  flex-grow: 1;
-}
-
-/* ====== Banner ====== */
-.banner {
-  background: linear-gradient(to right, #1976d2, #42a5f5);
-  color: white;
-  padding: 30px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.banner h1 {
-  font-size: 2rem;
+ol li {
   margin-bottom: 10px;
 }
 
-.tagline {
-  font-size: 1.1rem;
-  opacity: 0.95;
+strong {
+  color: #14213d;
 }
 
-/* ====== Content Block ====== */
-.content-block {
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  margin-bottom: 30px;
-}
-
-/* ====== Form Elements ====== */
-input,
-select,
-button {
-  display: block;
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
-  max-width: 300px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-button {
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #1565c0;
-}
-
-.input-group label {
-  margin-top: 10px;
-  font-weight: 500;
-}
-
-/* ====== Output Area ====== */
-.calc-output {
-  background-color: #e3f2fd;
-  padding: 15px;
-  border-left: 4px solid #1976d2;
-  margin-top: 20px;
-  border-radius: 5px;
-  max-width: 500px;
-  margin-left: 0;
-  word-break: break-word;
+@media screen and (max-width: 768px) {
+  .main {
+    margin-left: 0;
+    padding: 20px;
+  }
+  .sidebar {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
+  .sidebar ul li a {
+    display: inline-block;
+    margin: 5px;
+  }
 }
