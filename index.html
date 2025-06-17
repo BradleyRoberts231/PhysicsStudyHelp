@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 
-  <!-- MathJax for equation rendering -->
+  <!-- MathJax for LaTeX rendering -->
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-  <!-- Sidebar Navigation -->
+  <!-- Sidebar -->
   <nav class="sidebar">
     <ul>
       <li><a href="#home">🏠 Home</a></li>
@@ -64,31 +64,20 @@
       <h3>Derivations</h3>
 
       <h4>1. \( v = v_0 + at \)</h4>
-      <p>From the definition of acceleration:</p>
       <p>\( a = \frac{v - v_0}{t} \Rightarrow v = v_0 + at \)</p>
 
       <h4>2. \( \Delta x = v_0t + \frac{1}{2}at^2 \)</h4>
-      <p>Average velocity: \( v_{\text{avg}} = \frac{v_0 + v}{2} \)</p>
-      <p>Displacement: \( \Delta x = v_{\text{avg}} \cdot t = \frac{v_0 + v}{2} \cdot t \)</p>
-      <p>Substitute \( v = v_0 + at \) →</p>
+      <p>\( v_{\text{avg}} = \frac{v_0 + v}{2} \Rightarrow \Delta x = v_{\text{avg}} \cdot t \)</p>
+      <p>Substitute \( v = v_0 + at \):</p>
       <p>\( \Delta x = \left(v_0 + \frac{1}{2}at\right)t = v_0t + \frac{1}{2}at^2 \)</p>
 
       <h4>3. \( v^2 = v_0^2 + 2a\Delta x \)</h4>
-      <p>Using the previous equations and eliminating time:</p>
+      <p>From previous equations, eliminate \( t \):</p>
       <p>\( v^2 = v_0^2 + 2a\Delta x \)</p>
 
       <h3>Example Problems</h3>
-
-      <h4>Example 1</h4>
-      <p><em>A car starts from rest and accelerates at 3 m/s² for 5 seconds. How fast is it going?</em></p>
       <p>\( v = 0 + (3)(5) = 15 \, \text{m/s} \)</p>
-
-      <h4>Example 2</h4>
-      <p><em>A rock is dropped off a cliff. How far does it fall in 4 seconds?</em></p>
       <p>\( \Delta x = \frac{1}{2}(9.8)(4^2) = 78.4 \, \text{m} \)</p>
-
-      <h4>Example 3</h4>
-      <p><em>A train moving at 20 m/s brakes to a stop in 100 meters. What is its acceleration?</em></p>
       <p>\( 0 = 400 + 2a(-100) \Rightarrow a = 2 \, \text{m/s}^2 \)</p>
     </section>
 
@@ -118,3 +107,4 @@
   </div>
 </body>
 </html>
+
