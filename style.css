@@ -1,4 +1,4 @@
-/* Basic layout */
+/* Layout */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -43,7 +43,7 @@ body {
   max-width: 800px;
 }
 
-/* Banner */
+/* Header/Banner */
 .banner {
   background-color: #007ACC;
   color: white;
@@ -62,7 +62,7 @@ body {
   font-style: italic;
 }
 
-/* Sections */
+/* Section formatting */
 section {
   margin-bottom: 40px;
 }
@@ -79,14 +79,18 @@ button {
   cursor: pointer;
 }
 
-/* Code blocks and math */
+/* Equations/code/notes */
 code {
-  background-color: #eaeaea;
-  padding: 2px 6px;
+  background-color: #eee;
+  padding: 2px 5px;
   border-radius: 4px;
 }
 
-/* Footer */
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
 footer {
   margin-top: 40px;
   font-size: 0.9em;
