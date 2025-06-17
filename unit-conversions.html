@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kinematic Solver | Physics Formula Hub</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Conversions | Physics Formula Hub</title>
+  <link rel="stylesheet" href="style.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -27,25 +27,15 @@
 
     <main class="content">
       <div>
-        <h1>Kinematic Equation Solver</h1>
-        <p class="description">
-          Select a kinematic equation, enter known values, and calculate the missing variable. All steps are shown using LaTeX for clarity.
-        </p>
+        <h1>Unit Conversion Tools</h1>
+        <p class="description">Convert between various STEM-related units. Each calculator shows the result clearly using LaTeX formatting.</p>
 
-        <div class="styled-form">
-          <label for="formula-select">Choose Equation:</label>
-          <select id="formula-select">
-            <option value="v = v₀ + at">v = v₀ + at</option>
-            <option value="x = x₀ + v₀t + ½at²">x = x₀ + v₀t + ½at²</option>
-            <option value="v² = v₀² + 2a(x − x₀)">v² = v₀² + 2a(x − x₀)</option>
-          </select>
-
-          <div id="input-fields"></div>
-
-          <button id="solve-btn" class="toggle-btn">Solve</button>
-        </div>
-
-        <div id="kinematic-result" class="converter-output"></div>
+        <div id="distance-converter"></div>
+        <div id="time-converter"></div>
+        <div id="mass-converter"></div>
+        <div id="energy-converter"></div>
+        <div id="force-converter"></div>
+        <div id="temperature-converter"></div>
       </div>
 
       <aside class="ad-column">
@@ -53,7 +43,8 @@
       </aside>
     </main>
 
-  <script src="script.js"></script>
-  <script src="kinematic.js"></script>
+    <script src="script.js"></script>
+    <script src="unit-conversions.js"></script>
+  </div>
 </body>
 </html>
